@@ -14,75 +14,309 @@
   }
   *{box-sizing:border-box}
   html,body{
-    margin:0;padding:0;
+    margin:0;
+    padding:0;
     font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Helvetica,Arial,sans-serif;
     line-height:1.5;
     color:var(--ink);
-    background:url('assets/bg.png') center/cover no-repeat fixed;
+    background:url('assets/bg.png') center/cover no-repeat fixed #111;
   }
   a{color:inherit;text-decoration:none}
-  .wrap{width:92%;max-width:92%;margin:0 auto}
-  .spacer{height:6vh}
-  .footer-note{text-align:center;color:var(--muted);font-size:2.4vw;margin:8vh 0 10vh 0}
 
-  /* ===== Shared project section styles ===== */
-  .project{position:relative;padding:7vh 0;background:rgba(0,0,0,0.7);border-radius:1vw}
-  .project .banner{display:flex;gap:3%}
-  .project .main{flex:1 1 60%;position:relative;border-radius:2vw;overflow:hidden;background:rgba(255,255,255,0.08)}
-  .project .main .bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(0.55)}
-  .project .content{position:relative;z-index:2;padding:6% 7%}
-  .project .title{font-weight:800;letter-spacing:0.02em;margin:0 0 2vh 0;font-size:6.5vw;color:var(--accent2)}
-  .project .text{font-size:2.8vw;max-width:90%}
-  .project .footer{text-align:center;margin-top:2vh;font-size:2.4vw;color:var(--muted)}
+  .wrap{
+    width:92%;
+    max-width:140vh;
+    margin:0 auto;
+  }
 
-  .project .side{flex:0 0 20%;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;padding:6%;border-radius:2vw;text-align:center;color:var(--muted)}
-  .project .preview-trigger{display:inline-block;font-size:2.6vw;padding:2vh 4%;border-radius:2vw;background:rgba(255,255,255,0.08);color:var(--ink);cursor:pointer;transition:filter 200ms ease;text-transform:capitalize}
-  .project .preview-trigger:focus{outline:none;filter:brightness(1.25)}
-  .project .preview-trigger:hover{filter:brightness(1.15)}
+  .footer-note{
+    text-align:center;
+    color:var(--muted);
+    font-size:2.2vh;
+    margin:4vh 0 6vh 0;
+  }
 
-  /* Modal gallery (scoped per section) */
-  .project .preview-modal{position:fixed;inset:0;background:rgba(0,0,0,0.9);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity 200ms ease;z-index:9999}
-  .project .preview-modal[data-open="true"]{opacity:1;visibility:visible}
-  .project .modal-frame{position:relative;width:92%;max-width:92%;height:82vh;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.03);border-radius:2vw;overflow:hidden}
-  .project .modal-img{width:100%;height:100%;object-fit:contain;user-select:none}
-  .project .nav{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;padding:0 2%;pointer-events:none}
-  .project .nav button,.project .close{pointer-events:auto;border:none;background:rgba(255,255,255,0.12);color:var(--ink);cursor:pointer;font-size:4vw;line-height:1;padding:2vh 3%;border-radius:2vw;transition:filter 150ms ease}
-  .project .nav button:hover,.project .close:hover{filter:brightness(1.25)}
-  .project .close{position:absolute;top:2vh;right:2%;font-size:3.5vw}
+  .spacer{
+    height:0vh;
+  }
 
-  /* Mobile */
+/* ===== HERO ===== */
+.hero{
+  position:relative;
+  min-height:65vh;     /* bigger hero height */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:6vh 4%;
+  background:rgba(0,0,0,0.65);   /* same as original */
+  margin-bottom:2vh;
+}
+
+.hero h1{
+  margin:0;
+  font-weight:800;
+  letter-spacing:0.03em;
+  font-size:12vh;      /* big text */
+  line-height:1.05;
+}
+
+.hero h1 .a2{color:var(--accent2)}
+.hero h1 .a1{color:var(--accent1)}
+
+.intro{
+  max-width:60ch;
+  margin:4vh auto 0 auto;
+  font-size:3vh;       /* slightly larger */
+  opacity:0.9;
+}
+
+/* ===== Shared project section styles ===== */
+.project{
+  position:relative;
+  padding:3vh 0;                 /* bigger spacing between projects */
+  border-radius:1.8vh;           /* slightly bigger radius */
+}
+
+.project .banner{
+  display:flex;
+  gap:4%;                        /* wider spacing between main + side */
+}
+
+.project .main{
+  flex:1 1 65%;                  /* main takes more space */
+  position:relative;
+  border-radius:1.8vh;
+  overflow:hidden;
+  background:rgba(255,255,255,0.08);
+}
+
+.project .main .bg{
+  position:absolute;
+  inset:0;
+  background-size:cover;
+  background-position:center;
+  filter:brightness(0.4);
+}
+
+/* CONTENT INSIDE PROJECT MAIN */
+.project .content{
+  position:relative;
+  z-index:2;
+  padding:6vh 5vh;               /* bigger padding */
+  background-color:rgb(0 0 0 / 90%);
+}
+
+.project .title{
+  font-weight:800;
+  letter-spacing:0.03em;
+  margin:0 0 2.5vh 0;
+  font-size:6vh;                 /* larger, matching hero scale */
+  line-height:1.1;
+  color:var(--accent2);
+}
+
+.project .text{
+  font-size:3vh;                 /* bigger body text */
+  max-width:90%;
+}
+
+.project .footer{
+  text-align:left;
+  margin-top:3vh;
+  font-size:2.5vh;
+  color:var(--muted);
+}
+
+/* SIDE BUTTONS BOX */
+.project .side{
+  flex:0 0 25%;                  /* more width to match the large hero proportions */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:3vh;
+  border-radius:1.8vh;
+  text-align:center;
+  color:var(--muted);
+  flex-direction:column;
+  gap:3vh;                       /* bigger spacing between buttons */
+}
+
+/* BUTTONS */
+.project .preview-trigger{
+  display:inline-block;
+  font-size:2.8vh;               /* bigger button text */
+  padding:2.2vh 4.2vh;           /* bigger button padding */
+  border-radius:5vh;
+  background:rgba(0,0,0,0.65);
+  color:var(--ink);
+  cursor:pointer;
+  border:0.2vh solid rgba(255,255,255,0.2);
+  transition:all 200ms ease;
+  text-transform:capitalize;
+}
+.project .preview-trigger:hover{
+  background:var(--accent2);
+  color:#000;
+  border-color:var(--accent2);
+  transform:scale(1.04);
+  box-shadow:0 0 3vh var(--accent2);
+}
+
+
+/* ===== Modal Gallery (Images, Video, GDD Docs) ===== */
+.project .preview-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.95);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity 200ms ease;
+  z-index:9999;
+}
+.project .preview-modal[data-open="true"]{
+  opacity:1;
+  visibility:visible;
+}
+
+/* make the frame almost fullscreen so the doc can breathe */
+.project .modal-frame{
+  position:relative;
+  width:96%;
+  max-width:190vh;   /* very wide on large screens */
+  height:92vh;       /* almost full height */
+  aspect-ratio:auto; /* let content decide */
+  background:black;
+  border-radius:1.8vh;
+  overflow:hidden;
+  box-shadow:0 0 5vh rgba(0,0,0,0.5);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.project .media-container{
+  width:90%;
+  height:90%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* iframe (Google Doc) and videos fill the whole area */
+.project .media-container iframe{
+  width:100%;
+  height:100%;
+  border:none;
+  display:block;
+}
+
+/* images still behave nicely */
+.project .media-container img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+
+
+  /* Nav Buttons */
+  .project .nav{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 1%;
+    pointer-events:none;
+  }
+  .project .nav button{
+    pointer-events:auto;
+    border:none;
+    background:rgba(0,0,0,0.5);
+    color:white;
+    cursor:pointer;
+    font-size:3.2vh;
+    width:5.2vh;
+    height:5.2vh;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:background 0.2s ease;
+  }
+  .project .nav button:hover{
+    background:var(--accent2);
+    color:black;
+  }
+
+  /* Close Button */
+  .project .close{
+    position:absolute;
+    top:2.2vh;
+    right:2.2vh;
+    background:rgba(0,0,0,0.5);
+    color:white;
+    border:none;
+    padding:1.4vh 2.6vh;
+    border-radius:3.2vh;
+    cursor:pointer;
+    z-index:10000;
+    font-weight:bold;
+    font-size:2.1vh;
+  }
+  .project .close:hover{
+    background:var(--accent1);
+  }
+
+
+  /* ===== Mobile Response ===== */
   @media (max-width:50em){
-    .project .banner{flex-direction:column}
-    .project .side{order:2;flex-basis:auto}
-    .project .title{font-size:10vw}
-    .project .text{font-size:4.2vw}
-    .project .footer{font-size:3.6vw}
-    .project .preview-trigger{font-size:4vw}
-    .project .nav button{font-size:7vw}
-    .project .close{font-size:6vw}
+    .project .banner{
+      flex-direction:column;
+    }
+    .project .side{
+      order:2;
+      flex-basis:auto;
+      padding:2.4vh 0;
+    }
+    .project .title{
+      font-size:3.8vh;
+    }
+    .project .text{
+      font-size:2.3vh;
+      text-align: left;
+    }
+    .hero{
+      padding:4.5vh 6%;
+      min-height:40vh;
+    }
+    .hero h1{
+      font-size:5vh;
+    }
+    .intro{
+      font-size:2.2vh;
+    }
+    .project .modal-frame{
+      width:100%;
+      border-radius:0;
+      aspect-ratio:auto;
+      height:60vh;
+    }
   }
 </style>
 </head>
 
 <body>
-  <!-- HERO SECTION -->
-  <header class="hero">
-    <style>
-      .hero{position:relative;min-height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:6vh 4%;background:rgba(0,0,0,0.65)}
-      .hero h1{margin:0;font-weight:800;letter-spacing:0.03em;font-size:11vw}
-      .hero h1 .a2{color:var(--accent2)}
-      .hero h1 .a1{color:var(--accent1)}
-      .intro{max-width:80ch;margin:4vh auto 0 auto;font-size:2.8vw}
-      @media (min-width:80em){.intro{font-size:1.4vw}}
-      @media (max-width:45em){.intro{font-size:4.2vw}}
-    </style>
 
+  <header class="hero">
     <div class="wrap">
       <h1><span class="a2">GAME</span> <span class="a1">DESIGN</span><br>PORTFOLIO</h1>
       <p class="intro">
         Hi, I’m <strong>Ishant Jadhav</strong>. I’ve been imagining worlds and stories for as long as I can remember.
-        I love crafting experiences from horror to adventure to puzzles that make people feel. Below are a few
-        projects from that journey.
+        I love crafting experiences from horror to adventure. Below are a few projects from that journey.
       </p>
     </div>
   </header>
@@ -90,11 +324,112 @@
   <main class="wrap">
     <div class="spacer"></div>
 
+<section id="defector" class="project">
+  <div class="banner">
+    <aside class="side">
+      <button class="preview-trigger" type="button">Screenshots</button>
+      <button class="preview-trigger" type="button">Videos</button>
+      <button class="preview-trigger" type="button">GDD</button>
+    </aside>
+
+    <div class="main">
+      <div class="bg"></div>
+
+      <div class="content">
+        <h2 class="title">THE DEFECTOR</h2>
+
+        <p class="footer" style="margin-top: 0px; margin-bottom: 0px;">
+          <ft-text style="color:#f0cf34;">Role:</ft-text> Designer and Developer
+        </p>
+
+        <p class="footer" style="margin-top: 0px; margin-bottom: 0px;">
+          <ft-text style="color:#f0cf34;">Genre:</ft-text> Historical Horror Fiction / Psychological Horror
+        </p>
+
+        <p class="footer" style="margin-top: 0px; margin-bottom: 0px;">
+          <ft-text style="color:#f0cf34;">Tagline:</ft-text> "Escape something worse than war"
+        </p>
+
+        <p class="text">
+          <em>Defector</em> is a first-person historical horror game in development. It follows a German soldier trying to escape
+          the war, whose journey becomes a psychological nightmare as he’s forced to face his past. It blends storytelling,
+          atmosphere, and tension to explore the horrors of guilt and survival. As players move through the forest, they uncover
+          memories, confront haunting visions, and try to escape something more terrifying than the war itself.
+        </p>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="preview-modal" data-open="false">
+    <button class="close" type="button">✕ Close</button>
+    <div class="modal-frame">
+      <div class="media-container"></div>
+      <div class="nav">
+        <button class="prev">❮</button>
+        <button class="next">❯</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+    <section id="tartarus" class="project">
+      <div class="banner">
+        <div class="main">
+          <div class="bg"></div>
+
+          <div class="content">
+            <h2 class="title">THE TARTARUS PROJECT</h2>
+
+        <p class="footer" style="margin-top: 0px; margin-bottom: 0px;">
+          <ft-text style="color:#f0cf34;">Role:</ft-text> Designer and Developer
+        </p>
+
+        <p class="footer" style="margin-top: 0px; margin-bottom: 0px;">
+          <ft-text style="color:#f0cf34;">Genre:</ft-text> Post-apocalyptic 3D platformer
+        </p>
+
+        <p class="footer" style="margin-top: 0px; margin-bottom: 0px;">
+          <ft-text style="color:#f0cf34;">Tagline:</ft-text> "Climb what’s left of the world."
+        </p>
+
+            <p class="text">
+              <em>The Tartarus Project</em> is a 3D first-person platformer set in a dark, futuristic world where ancient mythology meets
+              cyberpunk design. In a vast tower of traps and trials, you’ll rely on fast reflexes and parkour skills to survive and
+              try to escape the endless cycle of punishment.
+            </p>
+          </div>
+        </div>
+
+        <aside class="side">
+          <button class="preview-trigger" type="button">Screenshots</button>
+          <button class="preview-trigger" type="button">Videos</button>
+          <button class="preview-trigger" type="button">GDD</button>
+        </aside>
+      </div>
+
+      <div class="preview-modal" data-open="false">
+        <button class="close" type="button">✕ Close</button>
+        <div class="modal-frame">
+          <div class="media-container"></div>
+          <div class="nav">
+            <button class="prev">❮</button>
+            <button class="next">❯</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="spacer"></div>
+
+    <p class="footer-note">© <span id="yr"></span> Ishant Jadhav</p>
+  </main> 
 
 <script>
-/* --- hard-coded gallery, no scanning --- */
+/* --- dynamic path helpers --- */
 function abs(basePath) {
-  // resolve relative to the current page (respects subfolders and <base>)
   const clean = String(basePath).replace(/\\/g, "/").replace(/\/+$/, "") + "/";
   return new URL(clean, document.baseURI).toString();
 }
@@ -106,29 +441,99 @@ function makeList(folder, count, ext = ".png", start = 1) {
   return urls;
 }
 
-function setupGallery(sectionId, images) {
-  const section = document.getElementById(sectionId);
+/* --- gallery system: images, videos, gdd iframe --- */
+function setupGallery(sectionId, mediaSets) {
+  const section    = document.getElementById(sectionId);
   if (!section) return;
-  const trigger = section.querySelector(".preview-trigger");
-  const modal   = section.querySelector(".preview-modal");
-  const imgEl   = section.querySelector(".modal-img");
-  const prevBtn = section.querySelector(".prev");
-  const nextBtn = section.querySelector(".next");
-  const closeBtn= section.querySelector(".close");
-  if (!trigger || !modal || !imgEl || !prevBtn || !nextBtn || !closeBtn) return;
 
-  if (!images.length) { trigger.disabled = true; trigger.textContent = "No previews available"; return; }
+  const modal      = section.querySelector(".preview-modal");
+  const container  = section.querySelector(".media-container");
+  const prevBtn    = section.querySelector(".prev");
+  const nextBtn    = section.querySelector(".next");
+  const closeBtn   = section.querySelector(".close");
+  const allButtons = Array.from(section.querySelectorAll(".preview-trigger"));
+
+  if (!modal || !container) return;
 
   let idx = 0;
-  const show = (i) => { idx = (i + images.length) % images.length; imgEl.src = images[idx]; };
-  const open = () => { show(0); modal.dataset.open = "true"; };
-  const close= () => { modal.dataset.open = "false"; };
+  let currentItems = [];
 
-  trigger.addEventListener("click", open);
-  prevBtn.addEventListener("click", () => show(idx - 1));
-  nextBtn.addEventListener("click", () => show(idx + 1));
-  closeBtn.addEventListener("click", close);
-  modal.addEventListener("click", (e) => { if (e.target === modal) close(); });
+  function show(i) {
+    if (!currentItems.length) return;
+
+    idx = (i + currentItems.length) % currentItems.length;
+    const item = currentItems[idx];
+
+    // --- GDD (iframe) ---
+    if (item.startsWith("gdd:")) {
+      const url = item.replace("gdd:", "");
+      container.innerHTML = `
+        <iframe src="${url}" 
+          style="width:100%;height:100%;border:none;"
+          allowfullscreen></iframe>`;
+      return;
+    }
+
+    // --- YouTube ---
+    if (item.includes("youtube.com/embed")) {
+      container.innerHTML = `
+        <iframe src="${item}" 
+          style="width:100%;height:100%;border:none;"
+          allowfullscreen></iframe>`;
+      return;
+    }
+
+    // --- Images ---
+    container.innerHTML = `<img src="${item}" alt="Project preview">`;
+  }
+
+  function openWith(items) {
+    currentItems = items;
+    show(0);
+    modal.dataset.open = "true";
+  }
+
+  function close() {
+    modal.dataset.open = "false";
+    setTimeout(() => (container.innerHTML = ""), 200);
+  }
+
+  /* ---- WIRE BUTTONS ---- */
+
+  if (Array.isArray(mediaSets)) {
+    const trigger = allButtons[0];
+    if (trigger) trigger.addEventListener("click", () => openWith(mediaSets));
+  } 
+  
+  else if (typeof mediaSets === "object") {
+    Object.entries(mediaSets).forEach(([label, items]) => {
+      const btn = allButtons.find(
+        (b) => b.textContent.trim().toLowerCase() === label.toLowerCase()
+      );
+      if (btn) btn.addEventListener("click", () => openWith(items));
+    });
+  }
+
+  /* ---- Modal controls ---- */
+
+  if (closeBtn) closeBtn.addEventListener("click", close);
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) close();
+  });
+
+  if (prevBtn)
+    prevBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      show(idx - 1);
+    });
+
+  if (nextBtn)
+    nextBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      show(idx + 1);
+    });
+
   document.addEventListener("keydown", (e) => {
     if (modal.dataset.open !== "true") return;
     if (e.key === "Escape") close();
@@ -137,10 +542,26 @@ function setupGallery(sectionId, images) {
   });
 }
 
+/* ---- FINAL SETUP ---- */
 window.addEventListener("DOMContentLoaded", () => {
-  // IMPORTANT: no leading slash here
-  setupGallery("defector",  makeList("assets/defector/", 7, ".png"));
-  setupGallery("tartarus",  makeList("assets/tartarus/", 3, ".jpg"));
+
+  setupGallery("defector", {
+    Screenshots: makeList("assets/defector/", 7, ".png"),
+    GDD: [
+      "gdd:https://1drv.ms/w/c/47ffcf62d077f71a/ESWb-P3uKRFAhiBW9xKRvtgB5rnITY2ZbXMhYjZ6c-egJA?e=pgkL4t"
+    ]
+  });
+
+  setupGallery("tartarus", {
+    Screenshots: makeList("assets/tartarus/", 3, ".jpg"),
+    Videos: [
+      "https://www.youtube.com/embed/xe-RSUbo5IA",
+      "https://www.youtube.com/embed/CKAgzRpYeaU"
+    ],
+    GDD: [
+      "gdd:https://docs.google.com/document/d/e/2PACX-1vQaOWLqZpirJGOMMw90p8vI2XHKJE5cVfZ1BHJyTx0wDCRjBwF5Z89IWOI4Inc5m2rWHSoC6c4SjoDy/pub?embedded=true"
+    ]
+  });
 
   const yr = document.getElementById("yr");
   if (yr) yr.textContent = new Date().getFullYear();
@@ -148,86 +569,6 @@ window.addEventListener("DOMContentLoaded", () => {
 </script>
 
 
-    <!-- THE DEFECTOR -->
-    <section id="defector" class="project">
-      <div class="banner">
-        <aside class="side">
-          <button class="preview-trigger" type="button" aria-haspopup="dialog">project preview</button>
-        </aside>
-
-        <div class="main">
-          <div class="bg" style="background-image:
-            linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.5)),
-            ;"></div>
-
-          <div class="content">
-            <h2 class="title">THE DEFECTOR</h2>
-            <p class="text">
-              <em>Defector</em> is a first-person historical horror game in development. It follows a German soldier trying to escape
-              the war, whose journey becomes a psychological nightmare as he’s forced to face his past. It blends storytelling,
-              atmosphere, and tension to explore the horrors of guilt and survival. As players move through the forest, they uncover
-              memories, confront haunting visions, and try to escape something more terrifying than the war itself.
-            </p>
-            <p class="footer">The Tartarus Project</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Modal -->
-      <div class="preview-modal" role="dialog" aria-modal="true" aria-label="Project preview" data-open="false">
-        <div class="modal-frame">
-          <img class="modal-img" alt="Project image preview">
-          <div class="nav">
-            <button class="prev" type="button" aria-label="Previous">‹</button>
-            <button class="next" type="button" aria-label="Next">›</button>
-          </div>
-          <button class="close" type="button" aria-label="Close">✕</button>
-        </div>
-      </div>
-    </section>
-
-    <div class="spacer"></div>
-
-    <!-- THE TARTARUS PROJECT -->
-    <section id="tartarus" class="project">
-      <div class="banner">
-        <div class="main">
-          <div class="bg" style="background-image:
-            linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.5)),
-            ;"></div>
-
-          <div class="content">
-            <h2 class="title">THE TARTARUS PROJECT</h2>
-            <p class="text">
-              <em>The Tartarus Project</em> is a 3D first-person platformer set in a dark, futuristic world where ancient mythology meets
-              cyberpunk design. In a vast tower of traps and trials, you’ll rely on fast reflexes and parkour skills to survive and
-              try to escape the endless cycle of punishment.
-            </p>
-          </div>
-        </div>
-
-        <aside class="side">
-          <button class="preview-trigger" type="button" aria-haspopup="dialog">project preview</button>
-        </aside>
-      </div>
-
-      <!-- Modal -->
-      <div class="preview-modal" role="dialog" aria-modal="true" aria-label="Project preview" data-open="false">
-        <div class="modal-frame">
-          <img class="modal-img" alt="Project image preview">
-          <div class="nav">
-            <button class="prev" type="button" aria-label="Previous">‹</button>
-            <button class="next" type="button" aria-label="Next">›</button>
-          </div>
-          <button class="close" type="button" aria-label="Close">✕</button>
-        </div>
-      </div>
-    </section>
-
-    <div class="spacer"></div>
-
-    <p class="footer-note">© <span id="yr"></span> Ishant Jadhav</p>
-  </main> 
 
 </body>
 </html>
