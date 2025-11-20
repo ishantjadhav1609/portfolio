@@ -29,6 +29,12 @@
     margin:0 auto;
   }
 
+  .ef {
+  color: #f0cf34;
+  font-style: normal;
+}
+
+
   .footer-note{
     text-align:center;
     color:var(--muted);
@@ -306,6 +312,80 @@
       height:60vh;
     }
   }
+
+/* ===== ABOUT ME ===== */
+.about {
+  margin-top: 6vh;
+  margin-bottom: 6vh;
+  padding: 6vh 4vh;
+  border-radius: 1.8vh;
+  background: rgba(0,0,0,0.75);
+  text-align: center;               /* center all text */
+}
+
+.about-inner {
+  width: 100%;
+  max-width: 140vh;                 /* same as .wrap limit */
+  margin: 0 auto;                   /* center wrapper */
+  display: flex;
+  flex-direction: column;           /* stack everything vertically */
+  align-items: center;              /* center horizontally */
+}
+
+.about-main {
+  width: 100%;
+}
+
+.about-title {
+  margin: 0 0 2.5vh 0;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  font-size: 6vh;
+  line-height: 1.1;
+  text-align: center;               /* ensure center alignment */
+}
+
+.about-text {
+  font-size: 2.6vh;
+  opacity: 0.92;
+  max-width: 100%;                 /* allow full width */
+  text-align: center;              /* centered paragraphs */
+  margin: 2vh 0;
+}
+
+.ef {
+  color: #f0cf34;
+  font-style: normal;
+}
+
+/* Center the side section and button */
+.about .project {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 4vh;
+}
+
+.about .side {
+  flex: unset;
+  padding: 0;
+}
+
+.about .preview-trigger {
+  font-size: 2.6vh;
+  padding: 2vh 4vh;
+}
+
+/* mobile tweaks */
+@media (max-width:50em) {
+  .about-title {
+    font-size: 4.4vh;
+  }
+  .about-text {
+    font-size: 2.2vh;
+  }
+}
+
 </style>
 </head>
 
@@ -427,6 +507,79 @@
     <p class="footer-note">© <span id="yr"></span> Ishant Jadhav</p>
   </main> 
 
+  </section>
+
+<div class="spacer"></div>
+
+<!-- ABOUT SECTION -->
+<section id="about" class="about">
+  <div class="about-inner">
+
+    <div class="about-main">
+      <h2 class="about-title">
+        <span class="a2">MORE</span> <span class="a1">ABOUT</span> ME
+      </h2>
+
+      <p class="about-text">
+        I’m a game designer who likes to create full, meaningful experiences, not just flashy or complicated ones.
+        For me, design is about balance and purpose. Every part of a game should exist for a reason.
+      </p>
+
+      <p class="about-text">
+        I enjoy making <span class="ef">story-driven</span>, <span class="ef">horror</span>, 
+        <span class="ef">open-world</span>, and <span class="ef">adventure</span> games.
+        I like building worlds that pull players in and make them feel something real.
+        My goal is to make sure the story and gameplay always support each other so they feel like one thing,
+        not two separate parts.
+      </p>
+
+      <p class="about-text">
+        I work with <span class="ef">Unreal Engine</span>, <span class="ef">Unity</span>,
+        <span class="ef">Blender</span>, <span class="ef">Maya</span>, <span class="ef">Photoshop</span>,
+        and other tools to bring ideas to life. I’m good at imagining, improvising, solving problems,
+        and managing teams to get the job done.
+      </p>
+
+      <p class="about-text">
+        My belief is simple: <span class="ef">Every detail and mechanic should help tell the story,
+        and every story should fit naturally with the game.</span>
+        And with this belief, I want to become a name recognized in the industry, someone who creates games
+        that leave a mark and stay with players for years.
+      </p>
+    </div>
+
+    <!-- Centered resume button -->
+    <div class="project">
+      <aside class="side">
+        <button class="preview-trigger" type="button">My Resume</button>
+      </aside>
+
+      <!-- Modal for Resume -->
+      <div class="preview-modal" data-open="false">
+        <button class="close" type="button">✕ Close</button>
+        <div class="modal-frame">
+          <div class="media-container"></div>
+          <div class="nav">
+            <button class="prev">❮</button>
+            <button class="next">❯</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- END ABOUT SECTION -->
+
+
+
+<div class="spacer"></div>
+
+<p class="footer-note">© <span id="yr"></span> Ishant Jadhav</p>
+</main>
+
+
 <script>
 /* --- dynamic path helpers --- */
 function abs(basePath) {
@@ -440,6 +593,8 @@ function makeList(folder, count, ext = ".png", start = 1) {
   for (let i = start; i < start + count; i++) urls.push(base + i + ext);
   return urls;
 }
+
+
 
 /* --- gallery system: images, videos, gdd iframe --- */
 function setupGallery(sectionId, mediaSets) {
@@ -552,7 +707,6 @@ window.addEventListener("DOMContentLoaded", () => {
     ]
   });
 
-
   setupGallery("tartarus", {
     Screenshots: makeList("assets/tartarus/", 3, ".jpg"),
     Videos: [
@@ -560,7 +714,13 @@ window.addEventListener("DOMContentLoaded", () => {
       "https://www.youtube.com/embed/CKAgzRpYeaU"
     ],
     GDD: [
-      "gdd:https://docs.google.com/document/d/e/2PACX-1vQaOWLqZpirJGOMMw90p8vI2XHKJE5cVfZ1BHJyTx0wDCRjBwF5Z89IWOI4Inc5m2rWHSoC6c4SjoDy/pub?embedded=true"
+      ""
+    ]
+  });
+
+  setupGallery("about", {
+    "My Resume": [
+      "gdd:assets/documents/resume.pdf#zoom=page-width"
     ]
   });
 
