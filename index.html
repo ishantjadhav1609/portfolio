@@ -13,15 +13,23 @@
     --accent2:#f0cf34; /* gold */
   }
   *{box-sizing:border-box}
-  html,body{
-    margin:0;
-    padding:0;
-    font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Helvetica,Arial,sans-serif;
-    line-height:1.5;
-    color:var(--ink);
-    background:url('assets/bg.png') center/cover no-repeat fixed #111;
-  }
+
+html,body{
+  margin:0;
+  padding:0;
+  font-family:system-ui,-apple-system,Roboto,Ubuntu,Cantarell,Helvetica,Arial,sans-serif;
+  line-height:1.5;
+  color:var(--ink);
+  background:url('assets/bg.png') center/cover no-repeat #111;
+}
+
+
   a{color:inherit;text-decoration:none}
+
+  body.modal-open{
+  overflow:hidden;
+}
+
 
   .wrap{
     width:92%;
@@ -29,11 +37,10 @@
     margin:0 auto;
   }
 
-  .ef {
-  color: #f0cf34;
-  font-style: normal;
-}
-
+  .ef{
+    color:#f0cf34;
+    font-style:normal;
+  }
 
   .footer-note{
     text-align:center;
@@ -46,187 +53,182 @@
     height:0vh;
   }
 
-/* ===== HERO ===== */
-.hero{
-  position:relative;
-  min-height:65vh;     /* bigger hero height */
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:6vh 4%;
-  background:rgba(0,0,0,0.65);   /* same as original */
-  margin-bottom:2vh;
-}
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    min-height:65vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:6vh 4%;
+    background:rgba(0,0,0,0.65);
+    margin-bottom:2vh;
+  }
 
-.hero h1{
-  margin:0;
-  font-weight:800;
-  letter-spacing:0.03em;
-  font-size:12vh;      /* big text */
-  line-height:1.05;
-}
+  .hero h1{
+    margin:0;
+    font-weight:800;
+    letter-spacing:0.03em;
+    font-size:12vh;
+    line-height:1.05;
+  }
 
-.hero h1 .a2{color:var(--accent2)}
-.hero h1 .a1{color:var(--accent1)}
+  .hero h1 .a2{color:var(--accent2)}
+  .hero h1 .a1{color:var(--accent1)}
 
-.intro{
-  max-width:60ch;
-  margin:4vh auto 0 auto;
-  font-size:3vh;       /* slightly larger */
-  opacity:0.9;
-}
+  .intro{
+    max-width:60ch;
+    margin:4vh auto 0 auto;
+    font-size:3vh;
+    opacity:0.9;
+  }
 
-/* ===== Shared project section styles ===== */
-.project{
-  position:relative;
-  padding:3vh 0;                 /* bigger spacing between projects */
-  border-radius:1.8vh;           /* slightly bigger radius */
-}
+  /* ===== Shared project section styles ===== */
+  .project{
+    position:relative;
+    padding:3vh 0;
+    border-radius:1.8vh;
+  }
 
-.project .banner{
-  display:flex;
-  gap:4%;                        /* wider spacing between main + side */
-}
+  .project .banner{
+    display:flex;
+    gap:4%;
+  }
 
-.project .main{
-  flex:1 1 65%;                  /* main takes more space */
-  position:relative;
-  border-radius:1.8vh;
-  overflow:hidden;
-  background:rgba(255,255,255,0.08);
-}
+  .project .main{
+    flex:1 1 65%;
+    position:relative;
+    border-radius:1.8vh;
+    overflow:hidden;
+    background:rgba(255,255,255,0.08);
+  }
 
-.project .main .bg{
-  position:absolute;
-  inset:0;
-  background-size:cover;
-  background-position:center;
-  filter:brightness(0.4);
-}
+  .project .main .bg{
+    position:absolute;
+    inset:0;
+    background-size:cover;
+    background-position:center;
+    filter:brightness(0.4);
+  }
 
-/* CONTENT INSIDE PROJECT MAIN */
-.project .content{
-  position:relative;
-  z-index:2;
-  padding:6vh 5vh;               /* bigger padding */
-  background-color:rgb(0 0 0 / 90%);
-}
+  /* CONTENT INSIDE PROJECT MAIN */
+  .project .content{
+    position:relative;
+    z-index:2;
+    padding:6vh 5vh;
+    background-color:rgb(0 0 0 / 90%);
+  }
 
-.project .title{
-  font-weight:800;
-  letter-spacing:0.03em;
-  margin:0 0 2.5vh 0;
-  font-size:6vh;                 /* larger, matching hero scale */
-  line-height:1.1;
-  color:var(--accent2);
-}
+  .project .title{
+    font-weight:800;
+    letter-spacing:0.03em;
+    margin:0 0 2.5vh 0;
+    font-size:6vh;
+    line-height:1.1;
+    color:var(--accent2);
+  }
 
-.project .text{
-  font-size:3vh;                 /* bigger body text */
-  max-width:90%;
-}
+  .project .text{
+    font-size:3vh;
+    max-width:90%;
+  }
 
-.project .footer{
-  text-align:left;
-  margin-top:3vh;
-  font-size:2.5vh;
-  color:var(--muted);
-}
+  .project .footer{
+    text-align:left;
+    margin-top:3vh;
+    font-size:2.5vh;
+    color:var(--muted);
+  }
 
-/* SIDE BUTTONS BOX */
-.project .side{
-  flex:0 0 25%;                  /* more width to match the large hero proportions */
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:3vh;
-  border-radius:1.8vh;
-  text-align:center;
-  color:var(--muted);
-  flex-direction:column;
-  gap:3vh;                       /* bigger spacing between buttons */
-}
+  /* SIDE BUTTONS BOX */
+  .project .side{
+    flex:0 0 25%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:3vh;
+    border-radius:1.8vh;
+    text-align:center;
+    color:var(--muted);
+    flex-direction:column;
+    gap:3vh;
+  }
 
-/* BUTTONS */
-.project .preview-trigger{
-  display:inline-block;
-  font-size:2.8vh;               /* bigger button text */
-  padding:2.2vh 4.2vh;           /* bigger button padding */
-  border-radius:5vh;
-  background:rgba(0,0,0,0.65);
-  color:var(--ink);
-  cursor:pointer;
-  border:0.2vh solid rgba(255,255,255,0.2);
-  transition:all 200ms ease;
-  text-transform:capitalize;
-}
-.project .preview-trigger:hover{
-  background:var(--accent2);
-  color:#000;
-  border-color:var(--accent2);
-  transform:scale(1.04);
-  box-shadow:0 0 3vh var(--accent2);
-}
+  /* BUTTONS */
+  .project .preview-trigger{
+    display:inline-block;
+    font-size:2.8vh;
+    padding:2.2vh 4.2vh;
+    border-radius:5vh;
+    background:rgba(0,0,0,0.65);
+    color:var(--ink);
+    cursor:pointer;
+    border:0.2vh solid rgba(255,255,255,0.2);
+    transition:all 200ms ease;
+    text-transform:capitalize;
+  }
+  .project .preview-trigger:hover{
+    background:var(--accent2);
+    color:#000;
+    border-color:var(--accent2);
+    transform:scale(1.04);
+    box-shadow:0 0 3vh var(--accent2);
+  }
 
+  /* ===== Modal Gallery ===== */
+  .project .preview-modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.95);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    opacity:0;
+    visibility:hidden;
+    transition:opacity 200ms ease;
+    z-index:9999;
+  }
+  .project .preview-modal[data-open="true"]{
+    opacity:1;
+    visibility:visible;
+  }
 
-/* ===== Modal Gallery (Images, Video, GDD Docs) ===== */
-.project .preview-modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.95);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  opacity:0;
-  visibility:hidden;
-  transition:opacity 200ms ease;
-  z-index:9999;
-}
-.project .preview-modal[data-open="true"]{
-  opacity:1;
-  visibility:visible;
-}
+  .project .modal-frame{
+    position:relative;
+    width:96%;
+    max-width:190vh;
+    height:92vh;
+    aspect-ratio:auto;
+    background:black;
+    border-radius:1.8vh;
+    overflow:hidden;
+    box-shadow:0 0 5vh rgba(0,0,0,0.5);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
 
-/* make the frame almost fullscreen so the doc can breathe */
-.project .modal-frame{
-  position:relative;
-  width:96%;
-  max-width:190vh;   /* very wide on large screens */
-  height:92vh;       /* almost full height */
-  aspect-ratio:auto; /* let content decide */
-  background:black;
-  border-radius:1.8vh;
-  overflow:hidden;
-  box-shadow:0 0 5vh rgba(0,0,0,0.5);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
+  .project .media-container{
+    width:90%;
+    height:90%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
 
-.project .media-container{
-  width:90%;
-  height:90%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
+  .project .media-container iframe{
+    width:100%;
+    height:100%;
+    border:none;
+    display:block;
+  }
 
-/* iframe (Google Doc) and videos fill the whole area */
-.project .media-container iframe{
-  width:100%;
-  height:100%;
-  border:none;
-  display:block;
-}
-
-/* images still behave nicely */
-.project .media-container img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-}
-
+  .project .media-container img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+  }
 
   /* Nav Buttons */
   .project .nav{
@@ -277,6 +279,22 @@
     background:var(--accent1);
   }
 
+  /* CORE DISCIPLINES GRID */
+  .disciplines-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:6vh;
+    margin-top:6vh;
+    width:100%;
+    justify-items:center;
+    align-items:center;
+  }
+
+  .disciplines-grid img{
+    width:26vh;
+    height:auto;
+    filter:drop-shadow(0 0 1vh #000);
+  }
 
   /* ===== Mobile Response ===== */
   @media (max-width:50em){
@@ -293,7 +311,7 @@
     }
     .project .text{
       font-size:2.3vh;
-      text-align: left;
+      text-align:left;
     }
     .hero{
       padding:4.5vh 6%;
@@ -311,81 +329,82 @@
       aspect-ratio:auto;
       height:60vh;
     }
+    .disciplines-grid{
+      grid-template-columns:1fr;
+      gap:4vh;
+    }
+    .disciplines-grid img{
+      width:22vh;
+    }
   }
 
-/* ===== ABOUT ME ===== */
-.about {
-  margin-top: 6vh;
-  margin-bottom: 6vh;
-  padding: 6vh 4vh;
-  border-radius: 1.8vh;
-  background: rgba(0,0,0,0.75);
-  text-align: center;               /* center all text */
-}
-
-.about-inner {
-  width: 100%;
-  max-width: 140vh;                 /* same as .wrap limit */
-  margin: 0 auto;                   /* center wrapper */
-  display: flex;
-  flex-direction: column;           /* stack everything vertically */
-  align-items: center;              /* center horizontally */
-}
-
-.about-main {
-  width: 100%;
-}
-
-.about-title {
-  margin: 0 0 2.5vh 0;
-  font-weight: 800;
-  letter-spacing: 0.03em;
-  font-size: 6vh;
-  line-height: 1.1;
-  text-align: center;               /* ensure center alignment */
-}
-
-.about-text {
-  font-size: 2.6vh;
-  opacity: 0.92;
-  max-width: 100%;                 /* allow full width */
-  text-align: center;              /* centered paragraphs */
-  margin: 2vh 0;
-}
-
-.ef {
-  color: #f0cf34;
-  font-style: normal;
-}
-
-/* Center the side section and button */
-.about .project {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 4vh;
-}
-
-.about .side {
-  flex: unset;
-  padding: 0;
-}
-
-.about .preview-trigger {
-  font-size: 2.6vh;
-  padding: 2vh 4vh;
-}
-
-/* mobile tweaks */
-@media (max-width:50em) {
-  .about-title {
-    font-size: 4.4vh;
+  /* ===== ABOUT ME ===== */
+  .about{
+    margin-top:6vh;
+    margin-bottom:6vh;
+    padding:6vh 4vh;
+    border-radius:1.8vh;
+    background:rgba(0,0,0,0.75);
+    text-align:center;
   }
-  .about-text {
-    font-size: 2.2vh;
-  }
-}
 
+  .about-inner{
+    width:100%;
+    max-width:140vh;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .about-main{
+    width:100%;
+  }
+
+  .about-title{
+    margin:0 0 2.5vh 0;
+    font-weight:800;
+    letter-spacing:0.03em;
+    font-size:6vh;
+    line-height:1.1;
+    text-align:center;
+  }
+
+  .about-text{
+    font-size:2.6vh;
+    opacity:0.92;
+    max-width:100%;
+    text-align:center;
+    margin:2vh 0;
+  }
+
+  /* Center the side section and button */
+  .about .project{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    margin-top:4vh;
+  }
+
+  .about .side{
+    flex:unset;
+    padding:0;
+  }
+
+  .about .preview-trigger{
+    font-size:2.6vh;
+    padding:2vh 4vh;
+  }
+
+  /* mobile tweaks */
+  @media (max-width:50em){
+    .about-title{
+      font-size:4.4vh;
+    }
+    .about-text{
+      font-size:2.2vh;
+    }
+  }
 </style>
 </head>
 
@@ -404,56 +423,55 @@
   <main class="wrap">
     <div class="spacer"></div>
 
-<section id="defector" class="project">
-  <div class="banner">
-    <aside class="side">
-      <button class="preview-trigger" type="button">Screenshots</button>
-      <button class="preview-trigger" type="button">Videos</button>
-      <button class="preview-trigger" type="button">GDD</button>
-    </aside>
+    <section id="defector" class="project">
+      <div class="banner">
+        <aside class="side">
+          <button class="preview-trigger" type="button">Screenshots</button>
+          <button class="preview-trigger" type="button">Videos</button>
+          <button class="preview-trigger" type="button">GDD</button>
+        </aside>
 
-    <div class="main">
-      <div class="bg"></div>
+        <div class="main">
+          <div class="bg"></div>
 
-      <div class="content">
-        <h2 class="title">THE DEFECTOR</h2>
+          <div class="content">
+            <h2 class="title">THE DEFECTOR</h2>
 
-        <p class="footer" style="margin-top: 0px; margin-bottom: 0px;">
-          <ft-text style="color:#f0cf34;">Role:</ft-text> Designer and Developer
-        </p>
+            <p class="footer" style="margin-top:0;margin-bottom:0;">
+              <span class="ef">Role:</span> Designer and Developer
+            </p>
 
-        <p class="footer" style="margin-top: 0px; margin-bottom: 0px;">
-          <ft-text style="color:#f0cf34;">Genre:</ft-text> Historical Horror Fiction / Psychological Horror
-        </p>
+            <p class="footer" style="margin-top:0;margin-bottom:0;">
+              <span class="ef">Genre:</span> Historical Horror Fiction / Psychological Horror
+            </p>
 
-        <p class="footer" style="margin-top: 0px; margin-bottom: 0px;">
-          <ft-text style="color:#f0cf34;">Tagline:</ft-text> "Escape something worse than war"
-        </p>
+            <p class="footer" style="margin-top:0;margin-bottom:0;">
+              <span class="ef">Tagline:</span> "Escape something worse than war"
+            </p>
 
-        <p class="text">
-          <em>Defector</em> is a first-person historical horror game in development. It follows a German soldier trying to escape
-          the war, whose journey becomes a psychological nightmare as he’s forced to face his past. It blends storytelling,
-          atmosphere, and tension to explore the horrors of guilt and survival. As players move through the forest, they uncover
-          memories, confront haunting visions, and try to escape something more terrifying than the war itself.
-        </p>
+            <p class="text">
+              <strong>Defector</strong> is a first-person historical horror game in development. It follows a German soldier trying
+              to escape the war, whose journey becomes a psychological nightmare as he’s forced to face his past. It blends
+              storytelling, atmosphere, and tension to explore the horrors of guilt and survival. As players move through
+              the forest, they uncover memories, confront haunting visions, and try to escape something more terrifying than
+              the war itself.
+            </p>
 
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
 
-  <div class="preview-modal" data-open="false">
-    <button class="close" type="button">✕ Close</button>
-    <div class="modal-frame">
-      <div class="media-container"></div>
-      <div class="nav">
-        <button class="prev">❮</button>
-        <button class="next">❯</button>
+      <div class="preview-modal" data-open="false">
+        <button class="close" type="button">✕ Close</button>
+        <div class="modal-frame">
+          <div class="media-container"></div>
+          <div class="nav">
+            <button class="prev">❮</button>
+            <button class="next">❯</button>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
-
-
+    </section>
 
     <section id="tartarus" class="project">
       <div class="banner">
@@ -463,22 +481,22 @@
           <div class="content">
             <h2 class="title">THE TARTARUS PROJECT</h2>
 
-        <p class="footer" style="margin-top: 0px; margin-bottom: 0px;">
-          <ft-text style="color:#f0cf34;">Role:</ft-text> Designer and Developer
-        </p>
+            <p class="footer" style="margin-top:0;margin-bottom:0;">
+              <span class="ef">Role:</span> Designer and Developer
+            </p>
 
-        <p class="footer" style="margin-top: 0px; margin-bottom: 0px;">
-          <ft-text style="color:#f0cf34;">Genre:</ft-text> Post-apocalyptic 3D platformer
-        </p>
+            <p class="footer" style="margin-top:0;margin-bottom:0;">
+              <span class="ef">Genre:</span> Post-apocalyptic 3D platformer
+            </p>
 
-        <p class="footer" style="margin-top: 0px; margin-bottom: 0px;">
-          <ft-text style="color:#f0cf34;">Tagline:</ft-text> "Climb what’s left of the world."
-        </p>
+            <p class="footer" style="margin-top:0;margin-bottom:0;">
+              <span class="ef">Tagline:</span> "Climb what’s left of the world."
+            </p>
 
             <p class="text">
-              <em>The Tartarus Project</em> is a 3D first-person platformer set in a dark, futuristic world where ancient mythology meets
-              cyberpunk design. In a vast tower of traps and trials, you’ll rely on fast reflexes and parkour skills to survive and
-              try to escape the endless cycle of punishment.
+              <strong>The Tartarus Project</strong> is a 3D first-person platformer set in a dark, futuristic world where ancient
+              mythology meets cyberpunk design. In a vast tower of traps and trials, you’ll rely on fast reflexes and
+              parkour skills to survive and try to escape the endless cycle of punishment.
             </p>
           </div>
         </div>
@@ -486,7 +504,6 @@
         <aside class="side">
           <button class="preview-trigger" type="button">Screenshots</button>
           <button class="preview-trigger" type="button">Videos</button>
-          <button class="preview-trigger" type="button">GDD</button>
         </aside>
       </div>
 
@@ -504,232 +521,351 @@
 
     <div class="spacer"></div>
 
-    <p class="footer-note">© <span id="yr"></span> Ishant Jadhav</p>
-  </main> 
+    <!-- ABOUT SECTION -->
+    <section id="about" class="about">
+      <div class="about-inner">
 
-  </section>
+        <div class="about-main">
+          <h2 class="about-title">
+            <span class="a2">MORE</span> <span class="a1">ABOUT</span> ME
+          </h2>
 
-<div class="spacer"></div>
+          <p class="about-text">
+            I’m a game designer who likes to create full, meaningful experiences, not just flashy or complicated ones.
+            For me, design is about balance and purpose. Every part of a game should exist for a reason.
+          </p>
 
-<!-- ABOUT SECTION -->
-<section id="about" class="about">
-  <div class="about-inner">
+          <p class="about-text">
+            I enjoy making <span class="ef">story-driven</span>, <span class="ef">horror</span>,
+            <span class="ef">open-world</span>, and <span class="ef">adventure</span> games.
+            I like building worlds that pull players in and make them feel something real.
+            My goal is to make sure the story and gameplay always support each other so they feel like one thing,
+            not two separate parts.
+          </p>
 
-    <div class="about-main">
-      <h2 class="about-title">
-        <span class="a2">MORE</span> <span class="a1">ABOUT</span> ME
-      </h2>
+          <p class="about-text">
+            I work with <span class="ef">Unreal Engine</span>, <span class="ef">Unity</span>,
+            <span class="ef">Blender</span>, <span class="ef">Maya</span>, <span class="ef">Photoshop</span>,
+            and other tools to bring ideas to life. I’m good at imagining, improvising, solving problems,
+            and managing teams to get the job done.
+          </p>
 
-      <p class="about-text">
-        I’m a game designer who likes to create full, meaningful experiences, not just flashy or complicated ones.
-        For me, design is about balance and purpose. Every part of a game should exist for a reason.
-      </p>
+          <p class="about-text">
+            My belief is simple: <span class="ef">Every detail and mechanic should help tell the story,
+            and every story should fit naturally with the game.</span>
+            And with this belief, I want to become a name recognized in the industry, someone who creates games
+            that leave a mark and stay with players for years.
+          </p>
+        </div>
 
-      <p class="about-text">
-        I enjoy making <span class="ef">story-driven</span>, <span class="ef">horror</span>, 
-        <span class="ef">open-world</span>, and <span class="ef">adventure</span> games.
-        I like building worlds that pull players in and make them feel something real.
-        My goal is to make sure the story and gameplay always support each other so they feel like one thing,
-        not two separate parts.
-      </p>
+        <!-- Centered resume button -->
+        <div class="project">
+          <aside class="side">
+            <button class="preview-trigger" type="button">My Resume</button>
+          </aside>
 
-      <p class="about-text">
-        I work with <span class="ef">Unreal Engine</span>, <span class="ef">Unity</span>,
-        <span class="ef">Blender</span>, <span class="ef">Maya</span>, <span class="ef">Photoshop</span>,
-        and other tools to bring ideas to life. I’m good at imagining, improvising, solving problems,
-        and managing teams to get the job done.
-      </p>
-
-      <p class="about-text">
-        My belief is simple: <span class="ef">Every detail and mechanic should help tell the story,
-        and every story should fit naturally with the game.</span>
-        And with this belief, I want to become a name recognized in the industry, someone who creates games
-        that leave a mark and stay with players for years.
-      </p>
-    </div>
-
-    <!-- Centered resume button -->
-    <div class="project">
-      <aside class="side">
-        <button class="preview-trigger" type="button">My Resume</button>
-      </aside>
-
-      <!-- Modal for Resume -->
-      <div class="preview-modal" data-open="false">
-        <button class="close" type="button">✕ Close</button>
-        <div class="modal-frame">
-          <div class="media-container"></div>
-          <div class="nav">
-            <button class="prev">❮</button>
-            <button class="next">❯</button>
+          <!-- Modal for Resume -->
+          <div class="preview-modal" data-open="false">
+            <button class="close" type="button">✕ Close</button>
+            <div class="modal-frame">
+              <div class="media-container"></div>
+              <div class="nav">
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+              </div>
+            </div>
           </div>
         </div>
+
       </div>
-    </div>
+    </section>
+    <!-- END ABOUT SECTION -->
 
-  </div>
-</section>
+    <!-- CORE DISCIPLINES SECTION -->
+    <section id="disciplines" class="about" style="margin-top:4vh;">
+      <div class="about-inner">
 
-<!-- END ABOUT SECTION -->
+        <div class="about-main">
+          <h2 class="about-title">
+            <span class="a2">MY CORE</span> <span class="a1">DISCIPLINES</span>
+          </h2>
 
+          <div class="disciplines-grid">
 
+            <!-- Game & Level Design -->
+            <div style="text-align:center;">
+              <img src="assets/svg/Game and level Design.svg"
+                   alt="Game and Level Design">
+              <p class="about-text" style="margin-top:2vh;font-weight:bold;">Game &amp; Level Design</p>
+            </div>
+            
+            <!-- Environment & Art -->
+            <div style="text-align:center;">
+              <img src="assets/svg/Environment and art.svg"
+                   alt="Environment and Art">
+              <p class="about-text" style="margin-top:2vh;font-weight:bold;">Environment &amp; Art</p>
+            </div>
 
-<div class="spacer"></div>
+            <!-- Level & Quest Design -->
+            <div style="text-align:center;">
+              <img src="assets/svg/Level & Quest Design.svg"
+                   alt="Level & Quest Design">
+              <p class="about-text" style="margin-top:2vh;font-weight:bold;">Quest Design</p>
+            </div>
 
-<p class="footer-note">© <span id="yr"></span> Ishant Jadhav</p>
-</main>
+            <!-- Narrative Design -->
+            <div style="text-align:center;">
+              <img src="assets/svg/Narrative Design.svg"
+                   alt="Narrative Design">
+              <p class="about-text" style="margin-top:2vh;font-weight:bold;">Narrative &amp; Worldbuilding</p>
+            </div>
 
+            <!-- Gameplay Systems -->
+            <div style="text-align:center;">
+              <img src="assets/svg/GamePlay Systems Design.svg"
+                   alt="GamePlay Systems Design">
+              <p class="about-text" style="margin-top:2vh;font-weight:bold;">GamePlay Systems Design</p>
+            </div>
 
-<script>
-/* --- dynamic path helpers --- */
-function abs(basePath) {
-  const clean = String(basePath).replace(/\\/g, "/").replace(/\/+$/, "") + "/";
-  return new URL(clean, document.baseURI).toString();
-}
+            <!-- PXD -->
+            <div style="text-align:center;">
+              <img src="assets/svg/PXD.svg"
+                   alt="Player Experience Design">
+              <p class="about-text" style="margin-top:2vh;font-weight:bold;">Player Experience Design (PXD)</p>
+            </div>
 
-function makeList(folder, count, ext = ".png", start = 1) {
-  const base = abs(folder);
-  const urls = [];
-  for (let i = start; i < start + count; i++) urls.push(base + i + ext);
-  return urls;
-}
+          </div>
+        </div>
 
+      </div>
+    </section>
+    <!-- END CORE DISCIPLINES SECTION -->
 
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="about">
+      <div class="about-inner">
+        <div class="about-main">
 
-/* --- gallery system: images, videos, gdd iframe --- */
-function setupGallery(sectionId, mediaSets) {
-  const section    = document.getElementById(sectionId);
-  if (!section) return;
+          <h2 class="about-title">
+            <span class="a2">CONTACT</span> <span class="a1">ME</span>
+          </h2>
 
-  const modal      = section.querySelector(".preview-modal");
-  const container  = section.querySelector(".media-container");
-  const prevBtn    = section.querySelector(".prev");
-  const nextBtn    = section.querySelector(".next");
-  const closeBtn   = section.querySelector(".close");
-  const allButtons = Array.from(section.querySelectorAll(".preview-trigger"));
+          <!-- PHONE -->
+          <a href="tel:+919552534931"
+             class="about-text contact-link"
+             data-copy="+91 9552534931"
+             style="display:flex;align-items:center;gap:1.4vh;justify-content:center;text-decoration:none;color:inherit;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none"
+                 stroke="#f0cf34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 style="flex-shrink:0;">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72c.12.81.37 1.6.72 2.34a2 2 0 0 1-.45 2.18L8.09 9.91a16 16 0 0 0 6 6l1.67-1.18a2 2 0 0 1 2.18-.45c.74.35 1.53.6 2.34.72A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <span>+91 9552534931</span>
+          </a>
 
-  if (!modal || !container) return;
+          <!-- EMAIL -->
+          <a href="mailto:ishant.pramod.jadhav@gmail.com"
+             class="about-text contact-link"
+             data-copy="ishant.pramod.jadhav@gmail.com"
+             style="display:flex;align-items:center;gap:1.4vh;justify-content:center;text-decoration:none;color:inherit;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none"
+                 stroke="#f0cf34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 style="flex-shrink:0;">
+              <rect x="2" y="4" width="22" height="16" rx="2" ry="2"/>
+              <polyline points="2,6 13,13 24,6"/>
+            </svg>
+            <span>ishant.pramod.jadhav@gmail.com</span>
+          </a>
 
-  let idx = 0;
-  let currentItems = [];
+          <!-- LOCATION -->
+          <a href="https://www.google.com/maps/search/?api=1&query=Nashik,+Maharashtra,+India"
+             target="_blank" rel="noopener noreferrer"
+             class="about-text contact-link"
+             data-copy="Nashik, Maharashtra, India"
+             style="display:flex;align-items:center;gap:1.4vh;justify-content:center;text-decoration:none;color:inherit;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="none"
+                 stroke="#f0cf34" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 style="flex-shrink:0;">
+              <path d="M21 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0z"/>
+              <circle cx="13" cy="10" r="3"/>
+            </svg>
+            <span>Nashik, Maharashtra, India</span>
+          </a>
 
-  function show(i) {
-    if (!currentItems.length) return;
+        </div>
+      </div>
+    </section>
+    <!-- END CONTACT SECTION -->
 
-    idx = (i + currentItems.length) % currentItems.length;
-    const item = currentItems[idx];
+    <div class="spacer"></div>
 
-    // --- GDD (iframe) ---
-    if (item.startsWith("gdd:")) {
-      const url = item.replace("gdd:", "");
-      container.innerHTML = `
-        <iframe src="${url}" 
-          style="width:100%;height:100%;border:none;"
-          allowfullscreen></iframe>`;
-      return;
+    <p class="footer-note">© <span id="yr"></span> Ishant Jadhav</p>
+  </main>
+
+  <script>
+    // Copy contact info on click (while still opening the link)
+    window.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll(".contact-link").forEach(link => {
+        link.addEventListener("click", () => {
+          const text = link.dataset.copy;
+          if (text && navigator.clipboard) {
+            navigator.clipboard.writeText(text).catch(() => {
+              // silently fail if clipboard not available
+            });
+          }
+        });
+      });
+    });
+  </script>
+
+  <script>
+  /* --- dynamic path helpers --- */
+  function abs(basePath) {
+    const clean = String(basePath).replace(/\\/g, "/").replace(/\/+$/, "") + "/";
+    return new URL(clean, document.baseURI).toString();
+  }
+
+  function makeList(folder, count, ext = ".png", start = 1) {
+    const base = abs(folder);
+    const urls = [];
+    for (let i = start; i < start + count; i++) urls.push(base + i + ext);
+    return urls;
+  }
+
+  /* --- gallery system: images, videos, gdd iframe --- */
+  function setupGallery(sectionId, mediaSets) {
+    const section    = document.getElementById(sectionId);
+    if (!section) return;
+
+    const modal      = section.querySelector(".preview-modal");
+    const container  = section.querySelector(".media-container");
+    const prevBtn    = section.querySelector(".prev");
+    const nextBtn    = section.querySelector(".next");
+    const closeBtn   = section.querySelector(".close");
+    const allButtons = Array.from(section.querySelectorAll(".preview-trigger"));
+
+    if (!modal || !container) return;
+
+    let idx = 0;
+    let currentItems = [];
+
+    function show(i) {
+      if (!currentItems.length) return;
+
+      idx = (i + currentItems.length) % currentItems.length;
+      const item = currentItems[idx];
+
+      // --- GDD (iframe) ---
+      if (item.startsWith("gdd:")) {
+        const url = item.replace("gdd:", "");
+        container.innerHTML = `
+          <iframe src="${url}"
+            style="width:100%;height:100%;border:none;"
+            allowfullscreen></iframe>`;
+        return;
+      }
+
+      // --- YouTube ---
+      if (item.includes("youtube.com/embed")) {
+        container.innerHTML = `
+          <iframe src="${item}"
+            style="width:100%;height:100%;border:none;"
+            allowfullscreen></iframe>`;
+        return;
+      }
+
+      // --- Images ---
+      container.innerHTML = `<img src="${item}" alt="Project preview">`;
     }
 
-    // --- YouTube ---
-    if (item.includes("youtube.com/embed")) {
-      container.innerHTML = `
-        <iframe src="${item}" 
-          style="width:100%;height:100%;border:none;"
-          allowfullscreen></iframe>`;
-      return;
+      function openWith(items) {
+        currentItems = items;
+        show(0);
+        modal.dataset.open = "true";
+        document.body.classList.add("modal-open");   // disable page scroll
+      }
+
+      function close() {
+        modal.dataset.open = "false";
+        setTimeout(() => (container.innerHTML = ""), 200);
+        document.body.classList.remove("modal-open"); // re-enable page scroll
+      }
+
+
+    /* ---- WIRE BUTTONS ---- */
+
+    if (Array.isArray(mediaSets)) {
+      const trigger = allButtons[0];
+      if (trigger) trigger.addEventListener("click", () => openWith(mediaSets));
+    }
+    else if (typeof mediaSets === "object" && mediaSets !== null) {
+      Object.entries(mediaSets).forEach(([label, items]) => {
+        if (!Array.isArray(items) || !items.length) return; // skip empty sets
+        const btn = allButtons.find(
+          (b) => b.textContent.trim().toLowerCase() === label.toLowerCase()
+        );
+        if (btn) btn.addEventListener("click", () => openWith(items));
+      });
     }
 
-    // --- Images ---
-    container.innerHTML = `<img src="${item}" alt="Project preview">`;
-  }
+    /* ---- Modal controls ---- */
 
-  function openWith(items) {
-    currentItems = items;
-    show(0);
-    modal.dataset.open = "true";
-  }
+    if (closeBtn) closeBtn.addEventListener("click", close);
 
-  function close() {
-    modal.dataset.open = "false";
-    setTimeout(() => (container.innerHTML = ""), 200);
-  }
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) close();
+    });
 
-  /* ---- WIRE BUTTONS ---- */
+    if (prevBtn)
+      prevBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        show(idx - 1);
+      });
 
-  if (Array.isArray(mediaSets)) {
-    const trigger = allButtons[0];
-    if (trigger) trigger.addEventListener("click", () => openWith(mediaSets));
-  } 
-  
-  else if (typeof mediaSets === "object") {
-    Object.entries(mediaSets).forEach(([label, items]) => {
-      const btn = allButtons.find(
-        (b) => b.textContent.trim().toLowerCase() === label.toLowerCase()
-      );
-      if (btn) btn.addEventListener("click", () => openWith(items));
+    if (nextBtn)
+      nextBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        show(idx + 1);
+      });
+
+    document.addEventListener("keydown", (e) => {
+      if (modal.dataset.open !== "true") return;
+      if (e.key === "Escape") close();
+      if (e.key === "ArrowLeft") show(idx - 1);
+      if (e.key === "ArrowRight") show(idx + 1);
     });
   }
 
-  /* ---- Modal controls ---- */
+  /* ---- FINAL SETUP ---- */
+  window.addEventListener("DOMContentLoaded", () => {
 
-  if (closeBtn) closeBtn.addEventListener("click", close);
-
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) close();
-  });
-
-  if (prevBtn)
-    prevBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      show(idx - 1);
+    setupGallery("defector", {
+      Screenshots: makeList("assets/defector/", 7, ".png"),
+      GDD: [
+        "gdd:assets/defector/The Defector project GDD.pdf#zoom=page-width"
+      ]
     });
 
-  if (nextBtn)
-    nextBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      show(idx + 1);
+    setupGallery("tartarus", {
+      Screenshots: makeList("assets/tartarus/", 3, ".jpg"),
+      Videos: [
+        "https://www.youtube.com/embed/CKAgzRpYeaU",
+        "https://www.youtube.com/embed/xe-RSUbo5IA"
+      ]
+      // Add GDD here later when you have it
+      // GDD: ["gdd:assets/tartarus/Your GDD.pdf#zoom=page-width"]
     });
 
-  document.addEventListener("keydown", (e) => {
-    if (modal.dataset.open !== "true") return;
-    if (e.key === "Escape") close();
-    if (e.key === "ArrowLeft") show(idx - 1);
-    if (e.key === "ArrowRight") show(idx + 1);
+    setupGallery("about", {
+      "My Resume": [
+        "gdd:assets/documents/Resume.pdf#zoom=page-width"
+      ]
+    });
+
+    const yr = document.getElementById("yr");
+    if (yr) yr.textContent = new Date().getFullYear();
   });
-}
-
-/* ---- FINAL SETUP ---- */
-window.addEventListener("DOMContentLoaded", () => {
-
-  setupGallery("defector", {
-    Screenshots: makeList("assets/defector/", 7, ".png"),
-    GDD: [
-      "gdd:assets/defector/The Defector project GDD.pdf#zoom=page-width"
-    ]
-  });
-
-  setupGallery("tartarus", {
-    Screenshots: makeList("assets/tartarus/", 3, ".jpg"),
-    Videos: [
-      "https://www.youtube.com/embed/xe-RSUbo5IA",
-      "https://www.youtube.com/embed/CKAgzRpYeaU"
-    ],
-    GDD: [
-      ""
-    ]
-  });
-
-  setupGallery("about", {
-    "My Resume": [
-      "gdd:assets/documents/Resume.pdf#zoom=page-width"
-    ]
-  });
-
-  const yr = document.getElementById("yr");
-  if (yr) yr.textContent = new Date().getFullYear();
-});
-</script>
-
-
+  </script>
 
 </body>
 </html>
